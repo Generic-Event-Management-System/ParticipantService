@@ -52,6 +52,15 @@ namespace ParticipantService.Services
             return participant;
         }
 
+        public async Task DeleteParticipant(int participantId)
+        {
+            var participant = await GetParticipantOrThrowNotFoundException(participantId);
+
+            _dbContext.Participants.Remove(participant);
+
+            await _dbContext.SaveChangesAsync();
+        }
+
         private async Task<Participant> GetParticipantOrThrowNotFoundException(int participantId)
         {
             var participant = await _dbContext.Participants.FirstOrDefaultAsync(p => p.Id == participantId);

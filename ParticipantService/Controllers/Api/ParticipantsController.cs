@@ -39,5 +39,13 @@ namespace ParticipantService.Controllers.Api
         {
             return Ok( await _participantsService.UpdateParticipant(id,participantDto));
         }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteParticipant(int id)
+        {
+            await _participantsService.DeleteParticipant(id);
+
+            return NoContent();
+        }
     }
 }

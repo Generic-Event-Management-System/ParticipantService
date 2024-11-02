@@ -9,5 +9,6 @@ namespace ParticipantService.Services.Contracts
         Task<IEnumerable<Participant>> GetParticipants();
         Task<Participant> GetParticipant(int participantId);
         Task<Participant> UpdateParticipant(int participantId, ParticipantDto participantDto);
+        Task DeleteParticipant(int participantId);
     }
 }
