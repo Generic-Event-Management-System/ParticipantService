@@ -18,7 +18,6 @@ namespace ParticipantService.Services
             _mapper = mapper;
         }
 
-        [HttpPost]
         public async Task<Participant> CreateParticipant(ParticipantDto participantDto)
         {
             var participant = _mapper.Map<Participant>(participantDto);
@@ -29,5 +28,6 @@ namespace ParticipantService.Services
 
             return participant;
         }
+
     }
 }
