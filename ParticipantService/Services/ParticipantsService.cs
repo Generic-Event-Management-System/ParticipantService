@@ -41,6 +41,17 @@ namespace ParticipantService.Services
             return await GetParticipantOrThrowNotFoundException(participantId);
         }
 
+        public async Task<Participant> UpdateParticipant(int participantId, ParticipantDto participantDto)
+        {
+            var participant = await GetParticipantOrThrowNotFoundException(participantId);
+
+            _mapper.Map(participantDto, participant);
+
+            await _dbContext.SaveChangesAsync();
+
+            return participant;
+        }
+
         private async Task<Participant> GetParticipantOrThrowNotFoundException(int participantId)
         {
             var participant = await _dbContext.Participants.FirstOrDefaultAsync(p => p.Id == participantId);

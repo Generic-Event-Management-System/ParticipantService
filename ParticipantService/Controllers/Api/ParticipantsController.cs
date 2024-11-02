@@ -33,5 +33,11 @@ namespace ParticipantService.Controllers.Api
         {
             return Ok( await _participantsService.GetParticipant(id));
         }
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateParticipant(int id, ParticipantDto participantDto)
+        {
+            return Ok( await _participantsService.UpdateParticipant(id,participantDto));
+        }
     }
 }
