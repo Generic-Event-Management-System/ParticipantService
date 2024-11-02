@@ -21,5 +21,11 @@ namespace ParticipantService.Controllers.Api
         {
             return Ok( await _participantsService.CreateParticipant(participantDto));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetParticipants()
+        {
+            return Ok( await _participantsService.GetParticipants());
+        }
     }
 }

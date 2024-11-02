@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ParticipantService.Models.Dto;
 using ParticipantService.Models.Entities;
 using ParticipantService.Persistence;
@@ -27,6 +28,11 @@ namespace ParticipantService.Services
             await _dbContext.SaveChangesAsync();
 
             return participant;
+        }
+
+        public async Task<IEnumerable<Participant>> GetParticipants()
+        {
+            return await _dbContext.Participants.ToListAsync();
         }
 
     }
