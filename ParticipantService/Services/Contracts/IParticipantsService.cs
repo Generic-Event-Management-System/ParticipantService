@@ -7,5 +7,6 @@ namespace ParticipantService.Services.Contracts
     {
         Task<Participant> CreateParticipant(ParticipantDto participantDto);
         Task<IEnumerable<Participant>> GetParticipants();
+        Task<Participant> GetParticipant(int participantId);
     }
 }
