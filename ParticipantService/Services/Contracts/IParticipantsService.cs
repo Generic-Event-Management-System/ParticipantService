@@ -10,5 +10,6 @@ namespace ParticipantService.Services.Contracts
         Task<Participant> GetParticipant(int participantId);
         Task<Participant> UpdateParticipant(int participantId, ParticipantDto participantDto);
         Task DeleteParticipant(int participantId);
+        Task<bool> CheckParticipantsExists(ICollection<int> participantIds);
     }
 }

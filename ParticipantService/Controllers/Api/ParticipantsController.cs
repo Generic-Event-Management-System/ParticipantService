@@ -47,5 +47,11 @@ namespace ParticipantService.Controllers.Api
 
             return NoContent();
         }
+
+        [HttpPost("validate")]
+        public async Task<IActionResult> ValidateParticipants([FromBody] ICollection<int> participantIds)
+        {
+            return Ok( await _participantsService.CheckParticipantsExists(participantIds));
+        }
     }
 }

@@ -61,6 +61,16 @@ namespace ParticipantService.Services
             await _dbContext.SaveChangesAsync();
         }
 
+        public async Task<bool> CheckParticipantsExists(ICollection<int> participantIds)
+        {
+            foreach (var participantId in participantIds) 
+            {
+                if(!await _dbContext.Participants.AnyAsync(p => p.Id == participantId))
+                    return false;
+            }
+            return true;
+        }
+
         private async Task<Participant> GetParticipantOrThrowNotFoundException(int participantId)
         {
             var participant = await _dbContext.Participants.FirstOrDefaultAsync(p => p.Id == participantId);
