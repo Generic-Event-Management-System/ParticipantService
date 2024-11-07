@@ -1,11 +1,10 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ParticipantService.ExceptionHandling;
 using ParticipantService.Models.Dto;
 using ParticipantService.Models.Entities;
 using ParticipantService.Persistence;
 using ParticipantService.Services.Contracts;
+using SharedUtilities.CustomExceptions;
 
 namespace ParticipantService.Services
 {

@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.EntityFrameworkCore;
-using ParticipantService.ExceptionHandling;
 using ParticipantService.Persistence;
 using ParticipantService.Services;
 using ParticipantService.Services.Contracts;
+using SharedUtilities.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
